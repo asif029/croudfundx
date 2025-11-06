@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  :root {
+    --background: 241 247 250;
+    --foreground: 6 16 24;
+    --card: 255 255 255;
+    --card-foreground: 6 16 24;
+    --border: 210 222 228;
+    --input: 231 238 242;
+    --ring: 2 51 68;
+  }
+
+  .dark {
+    --background: 5 13 19;
+    --foreground: 234 245 249;
+    --card: 8 20 28;
+    --card-foreground: 234 245 249;
+    --border: 21 38 47;
+    --input: 17 32 41;
+    --ring: 58 163 187;
+  }
+}
+
+html,
+body {
+  @apply min-h-screen bg-background text-foreground antialiased;
+}
+
+body {
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background-image: radial-gradient(
+      circle at top left,
+      rgba(3, 80, 107, 0.18),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(2, 51, 68, 0.18),
+      transparent 45%
+    );
+  background-color: rgba(2, 51, 68, 0.03);
+}
+
+::selection {
+  @apply bg-brand text-brand-foreground;
+}
+
+a {
+  @apply text-brand underline-offset-4 transition hover:underline;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-brand/40;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand/60;
+}
